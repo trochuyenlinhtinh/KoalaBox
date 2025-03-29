@@ -13,19 +13,13 @@ include(GNUInstallDirs)
 
 set(
     KOALABOX_HEADERS
-    include/koalabox/cache.hpp
     include/koalabox/config.hpp
     include/koalabox/core.hpp
-    include/koalabox/crypto.hpp
-    include/koalabox/dll_monitor.hpp
     include/koalabox/globals.hpp
     include/koalabox/logger.hpp
     include/koalabox/hook.hpp
-    include/koalabox/http_client.hpp
     include/koalabox/io.hpp
-    include/koalabox/ipc.hpp
     include/koalabox/loader.hpp
-    include/koalabox/patcher.hpp
     include/koalabox/paths.hpp
     include/koalabox/util.hpp
     include/koalabox/win_util.hpp
@@ -33,19 +27,12 @@ set(
 
 set(
     KOALABOX_SOURCES
-    src/koalabox/cache.cpp
     src/koalabox/core.cpp
-    src/koalabox/crypto.cpp
-    src/koalabox/dll_monitor.cpp
     src/koalabox/globals.cpp
-    src/koalabox/logger.cpp
     src/koalabox/hook.cpp
-    src/koalabox/http_client.cpp
     src/koalabox/io.cpp
-    src/koalabox/ipc.cpp
     src/koalabox/loader.cpp
     src/koalabox/ntapi.hpp
-    src/koalabox/patcher.cpp
     src/koalabox/paths.cpp
     src/koalabox/util.cpp
     src/koalabox/win_util.cpp
@@ -54,9 +41,6 @@ set(
 add_library(KoalaBox OBJECT ${KOALABOX_HEADERS} ${KOALABOX_SOURCES})
 
 # Configure dependencies
-
-## Cpr - https://github.com/libcpr/cpr/
-fetch_library(cpr libcpr/cpr 1.10.1)
 
 ## Json - https://github.com/nlohmann/json
 fetch_library(nlohmann_json nlohmann/json v3.11.2)
@@ -68,12 +52,6 @@ fetch_library(PolyHook_2 stevemk14ebr/PolyHook_2_0 71d273463a3c4e30ec0a4031c4b47
 
 ## Spdlog - https://github.com/gabime/spdlog
 fetch_library(spdlog gabime/spdlog v1.11.0)
-
-## Miniz - https://github.com/richgel999/miniz
-fetch_library(miniz richgel999/miniz 3.0.2)
-
-## WinReg - https://github.com/GiovanniDicanio/WinReg
-fetch_library(WinReg acidicoala/WinReg b86786c6845a4a03a2e66a456cd65ec77069a7c4)
 
 # Setup KoalaBox exports
 target_include_directories(

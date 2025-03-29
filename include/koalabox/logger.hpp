@@ -4,25 +4,7 @@
 
 #include <spdlog/spdlog.h>
 
-
-namespace koalabox::logger {
-    /**
-     * A global single instance of the logger. Not meant to be used directly,
-     * as it is considered implementation detail. Instead, callers should use
-     * the macros defined below.
-     */
-    extern std::shared_ptr<spdlog::logger> instance;
-
-    KOALABOX_API(void) init_file_logger(const Path& path);
-
-    KOALABOX_API(void) init_file_logger();
-
-    KOALABOX_API(String) get_filename(const char* full_path);
-}
-
-#define LOG_MESSAGE(LEVEL, fmt, ...) koalabox::logger::instance->LEVEL( \
-    " {:>3}:{:24} ┃ " fmt, __LINE__, koalabox::logger::get_filename(__FILE__) , __VA_ARGS__ \
-);
+#define LOG_MESSAGE(...)
 
 // Define trace in a special way to avoid excessive logging in release builds
 #ifdef _DEBUG

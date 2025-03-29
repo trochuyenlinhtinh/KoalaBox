@@ -3,9 +3,6 @@
 #include <koalabox/loader.hpp>
 #include <koalabox/logger.hpp>
 
-#include <spdlog/sinks/stdout_sinks.h>
-#include <spdlog/pattern_formatter.h>
-
 #include <fstream>
 #include <regex>
 
@@ -27,19 +24,7 @@ Vector<String> split_string(const String& s, const String& delimiter);
  * 5: sources input path <br> (optional)
  */
 int wmain(const int argc, const wchar_t* argv[]) {
-    logger::instance = spdlog::stdout_logger_st("stdout");
-
     try {
-        auto formatter = std::make_unique<spdlog::pattern_formatter>();
-        formatter->set_pattern("%H:%M:%S.%e │ %l │ %v");
-        logger::instance->set_formatter(std::move(formatter));
-        logger::instance->flush_on(spdlog::level::trace);
-        logger::instance->set_level(spdlog::level::trace);
-
-        for (int i = 0; i < argc; i++) {
-            LOG_INFO("Arg #{} = '{}'", i, util::to_string(argv[i]))
-        }
-
         if (argc < 5 || argc > 6) {
             LOG_ERROR("Invalid number of arguments. Expected 5 or 6. Got: {}", argc)
 
