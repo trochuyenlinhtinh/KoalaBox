@@ -21,7 +21,6 @@ set(
     include/koalabox/globals.hpp
     include/koalabox/logger.hpp
     include/koalabox/hook.hpp
-    include/koalabox/http_client.hpp
     include/koalabox/io.hpp
     include/koalabox/ipc.hpp
     include/koalabox/loader.hpp
@@ -40,7 +39,6 @@ set(
     src/koalabox/globals.cpp
     src/koalabox/logger.cpp
     src/koalabox/hook.cpp
-    src/koalabox/http_client.cpp
     src/koalabox/io.cpp
     src/koalabox/ipc.cpp
     src/koalabox/loader.cpp
@@ -54,9 +52,6 @@ set(
 add_library(KoalaBox OBJECT ${KOALABOX_HEADERS} ${KOALABOX_SOURCES})
 
 # Configure dependencies
-
-## Cpr - https://github.com/libcpr/cpr/
-fetch_library(cpr libcpr/cpr 1.10.1)
 
 ## Json - https://github.com/nlohmann/json
 fetch_library(nlohmann_json nlohmann/json v3.11.2)
