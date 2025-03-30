@@ -15,15 +15,12 @@ set(
     KOALABOX_HEADERS
     include/koalabox/config.hpp
     include/koalabox/core.hpp
-    include/koalabox/crypto.hpp
     include/koalabox/dll_monitor.hpp
     include/koalabox/globals.hpp
     include/koalabox/logger.hpp
     include/koalabox/hook.hpp
     include/koalabox/io.hpp
-    include/koalabox/ipc.hpp
     include/koalabox/loader.hpp
-    include/koalabox/patcher.hpp
     include/koalabox/paths.hpp
     include/koalabox/util.hpp
     include/koalabox/win_util.hpp
@@ -32,16 +29,13 @@ set(
 set(
     KOALABOX_SOURCES
     src/koalabox/core.cpp
-    src/koalabox/crypto.cpp
     src/koalabox/dll_monitor.cpp
     src/koalabox/globals.cpp
     src/koalabox/logger.cpp
     src/koalabox/hook.cpp
     src/koalabox/io.cpp
-    src/koalabox/ipc.cpp
     src/koalabox/loader.cpp
     src/koalabox/ntapi.hpp
-    src/koalabox/patcher.cpp
     src/koalabox/paths.cpp
     src/koalabox/util.cpp
     src/koalabox/win_util.cpp
@@ -61,9 +55,6 @@ fetch_library(PolyHook_2 stevemk14ebr/PolyHook_2_0 71d273463a3c4e30ec0a4031c4b47
 
 ## Spdlog - https://github.com/gabime/spdlog
 fetch_library(spdlog gabime/spdlog v1.11.0)
-
-## WinReg - https://github.com/GiovanniDicanio/WinReg
-fetch_library(WinReg acidicoala/WinReg b86786c6845a4a03a2e66a456cd65ec77069a7c4)
 
 # Setup KoalaBox exports
 target_include_directories(
