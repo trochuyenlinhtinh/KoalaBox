@@ -13,7 +13,6 @@ include(GNUInstallDirs)
 
 set(
     KOALABOX_HEADERS
-    include/koalabox/cache.hpp
     include/koalabox/config.hpp
     include/koalabox/core.hpp
     include/koalabox/crypto.hpp
@@ -32,7 +31,6 @@ set(
 
 set(
     KOALABOX_SOURCES
-    src/koalabox/cache.cpp
     src/koalabox/core.cpp
     src/koalabox/crypto.cpp
     src/koalabox/dll_monitor.cpp
@@ -63,9 +61,6 @@ fetch_library(PolyHook_2 stevemk14ebr/PolyHook_2_0 71d273463a3c4e30ec0a4031c4b47
 
 ## Spdlog - https://github.com/gabime/spdlog
 fetch_library(spdlog gabime/spdlog v1.11.0)
-
-## Miniz - https://github.com/richgel999/miniz
-fetch_library(miniz richgel999/miniz 3.0.2)
 
 ## WinReg - https://github.com/GiovanniDicanio/WinReg
 fetch_library(WinReg acidicoala/WinReg b86786c6845a4a03a2e66a456cd65ec77069a7c4)
